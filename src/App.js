@@ -3,7 +3,7 @@ import Content from "./components/Content";
 
 function App() {
   return (
-    <div className="bg-slate-100 h-screen">
+    <div className="bg-slate-100 h-full">
         <Header />
         <Content />
     </div>

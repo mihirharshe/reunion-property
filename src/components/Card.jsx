@@ -2,14 +2,14 @@ import React from 'react'
 
 const Card = (props) => {
     return (
-        <div className="card mt-6 bg-white shadow-lg">
+        <div className="card mx-auto mb-8 bg-white shadow-lg">
             <div className="shadow-sm">
                 <img className="card-img" src={props.image} alt="" />
             </div>
             <div className="p-5 space-y-3">
                 <div className="flex justify-between">
                     <div className="flex items-center">
-                        <span className="text-2xl text-indigo-700 font-bold pr-1">{props.price}</span>
+                        <span className="text-2xl text-indigo-700 font-bold pr-1">${props.price.toLocaleString("en-US")}</span>
                         <span className="text-gray-500 font-medium">/month</span>
                     </div>
                     <div className="flex items-center bg-indigo-600 rounded-2xl px-2">

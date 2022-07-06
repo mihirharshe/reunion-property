@@ -1,23 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Card from './Card';
 import Filter from './Filter';
 import data from '../data';
 
 
 function Content() {
-
-    const [properties, setProperties] = React.useState(data);
-
+    const [filteredData, setFilteredData] = useState([...data]);
     return (
-        <div className="sm:mx-10 sm:my-5 mx-5 my-2 pb-7">
+        <div className="container mx-auto py-8 px-3 sm:px-0 md:px-0 lg:px-0">
             <span className="text-4xl font-bold">Search properties to rent</span>
 
             <div className="my-10">
-                <Filter />
+                <Filter setData={setFilteredData}/>
             </div>
+            {filteredData.length > 0 ?
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 flex-wrap justify-center">
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-1 gap-x-20 flex-wrap justify-center">
-                {properties.map((property, id) => (
+                {filteredData.map((property, id) => (
                     <Card
                         key={id}
                         name={property.name}
@@ -32,6 +31,9 @@ function Content() {
                     />
                 ))}
             </div>
+            :
+            <div className="text-center text-5xl font-medium">No matches</div>
+            }
         </div>
     )
 }
